@@ -26,13 +26,39 @@
 			background-color:#E2EBF8;
 		}
 	</style>
+	
+	<script type="text/javascript" src="jsFile/jquery-1.4.4.min.js">
+	</script><script type="text/javascript">
+		$(document).ready(function(){
+			changeBGImage();
+		});
+		function changeBGImage(){
+			var x = 10;
+			var y = 1;     
+			var num = [];
+			var rand;
+			for(var i = 0 ;i < 20 ; i++ ){
+				rand = parseInt(Math.random() * (x - y + 1) + y);
+				num[i] = rand;    	
+			}
+			
+			rand = parseInt(Math.random() * (x - y + 1) + y);
+			if(rand >= x){
+				rand = x -1;
+			}else if(rand < 0){
+				rand = 0;
+			}
+			
+			rand = num[rand];
+			
+			var path = "images/bgImage"+rand+".jpg";
+			$("#wallpapers").css("background-image","url('"+ path +"')");
+		}
+	</script>
 
 
 </head>
 <body>
-
-
-
-   <div id="wallpapers" style="background-image: url('images/bgImage1.jpg');"></div>
+<div id="wallpapers" style="background-image: url('images/bgImage1.jpg');"></div>
 </body>
 </html>
